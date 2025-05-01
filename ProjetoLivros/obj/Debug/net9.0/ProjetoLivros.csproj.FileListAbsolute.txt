@@ -1,0 +1,6 @@
+C:\Users\FIC\Documents\Workstation\Senai-BACKE.25\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ProjetoLivros.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FIC\Documents\Workstation\Senai-BACKE.25\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ProjetoLivros.AssemblyInfoInputs.cache
+C:\Users\FIC\Documents\Workstation\Senai-BACKE.25\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ProjetoLivros.AssemblyInfo.cs
+C:\Users\FIC\Documents\Workstation\Senai-BACKE.25\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ProjetoLivros.csproj.CoreCompileInputs.cache
+C:\Users\FIC\Documents\Workstation\Senai-BACKE.25\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ProjetoLivros.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\FIC\Documents\Workstation\Senai-BACKE.25\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ProjetoLivros.sourcelink.json
