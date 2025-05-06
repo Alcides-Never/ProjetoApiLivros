@@ -70,6 +70,87 @@ namespace ProjetoLivros.Context
                         .OnDelete(DeleteBehavior.Cascade);
                     }
                 );
+
+            modelBuilder.Entity<TipoUsuario>(entity =>
+            {
+                // Configuro a Primary Kay
+                entity.HasKey(t => t.TipoUsuarioId);
+
+                // Vou campo a campo configurando
+                entity.Property(t => t.DescricaoTipo)
+                .IsRequired()
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
+                // Descrição não pode se repetir
+                // Todo campo UNIQUE é um indice
+                entity.HasIndex(t => t.DescricaoTipo)
+                .IsUnique();
+            });
+
+            modelBuilder.Entity<Livro>(entity =>
+            {
+                entity.HasKey(l => l.LivroId);
+
+                entity.Property(l => l.Titulo)
+                .IsRequired()
+                .HasMaxLength(200)
+                .IsUnicode(false);
+
+                entity.Property(l => l.Autor)
+                .IsRequired()
+                .HasMaxLength(200)
+                .IsUnicode(false);
+
+                entity.Property(l => l.Descricao)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+
+                entity.Property(l => l.DataPublicacao)
+                .IsRequired();
+
+                // RELACIONAMENTO
+                // Todo livro tem uma categoria : Livro - Categoria
+                // 1 - N -> Um livro pode ter muitas categorias e uma categoria pode ter muitos Livros
+                entity.HasOne(l => l.Categoria)
+                .WithMany(c => c.Livros)
+                .HasForeignKey(l => l.CategoriaId)
+                .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            // CATEGORIA E ASSINATURA
+
+            modelBuilder.Entity<Categoria>(entity =>
+            {
+                entity.HasKey(c => c.CategoriaId);
+
+                entity.Property(c => c.NomeCategoria)
+                .IsRequired()
+                .HasMaxLength(100)
+                .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Assinatura>(entity =>
+            {
+                entity.HasKey(a => a.AssinaturaId);
+
+                entity.Property(a => a.DataInicio)
+                .IsRequired();
+
+                entity.Property(a => a.DataFim)
+                .IsRequired();
+
+                entity.Property(a => a.Status)
+                .IsRequired()
+                .HasMaxLength(20)
+                .IsUnicode(false);
+
+                // Assinatura - Usuario
+                entity.HasOne(a => a.Usuario)
+                .WithMany()
+                .HasForeignKey(a => a.UsuarioId)
+                .OnDelete(DeleteBehavior.Cascade);
+            });
         }
     }
 }
